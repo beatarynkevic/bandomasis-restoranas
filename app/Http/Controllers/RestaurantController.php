@@ -46,7 +46,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        $menus = Menu::orderBy('title')->get();
+        $menus = Menu::orderBy('title', 'desc')->get();
         return view('restaurant.create', ['menus' => $menus]);
     }
 
