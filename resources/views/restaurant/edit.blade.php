@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add member</div>
+                <div class="card-header">Add restaurant</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{route('member.update',[$member->id])}}">
+                    <form method="POST" action="{{route('restaurant.update',[$restaurant->id])}}">
                     <div class="form-group">
                             <label>Title</label>
                             <input type="text" class="form-control" name="restaurant_title" value="{{old('restaurant_title',$restaurant->title)}}">
@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <select name="menu_id">
                                 @foreach ($menus as $menu)
-                                <option value="{{$menu->id}}" @if($menu->id == $member->menu_id) selected @endif>
+                                <option value="{{$menu->id}}" @if($menu->id == $restaurant->menu_id) selected @endif>
                                     {{$menu->title}}
                                 </option>
                                 @endforeach

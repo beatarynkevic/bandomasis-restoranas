@@ -27,22 +27,35 @@
                 </div>
 
                 <div class="card-body">
-                    <ul class="list-group">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Pavadinimas</th>
+                            <th scope="col">Customers</th>
+                            <th scope="col">Employees</th>
+                            <th scope="col">Dienos patiekalas</th>
+                            <th scope="col">Veiksmai</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         @foreach ($restaurants as $restaurant)
-                        <li class="list-group-item list-line">
-                            <div>
-                                {{$restaurant->name}} {{$restaurant->surname}}
-                            </div>
-                            <div class="list-line__buttons">
-                                <a href="{{route('restaurant.edit',[$restaurant])}}" class="btn btn-info">EDIT</a>
-                                <form method="POST" action="{{route('restaurant.destroy', [$restaurant])}}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">DELETE</button>
-                                </form>
-                            </div>
-                        </li>
+                            <tr scope="row">
+                                <td>{{$restaurant->title}}</td>
+                                <td>{{$restaurant->customers}}</td>
+                                <td>{{$restaurant->employees}}</td>
+                                <td>{{$restaurant->restaurantMenus->title}}</td>
+                                <td>
+                                    <div class="list-line__buttons">
+                                        <a href="{{route('restaurant.edit',[$restaurant])}}" class="btn btn-info">EDIT</a>
+                                        <form method="POST" action="{{route('restaurant.destroy', [$restaurant])}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">DELETE</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
-                    </ul>
+                    </tbody>
                 </div>
             </div>
         </div>

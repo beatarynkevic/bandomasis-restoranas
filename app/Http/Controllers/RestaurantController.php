@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use Validator;
 
 class RestaurantController extends Controller
 {
@@ -20,7 +21,7 @@ class RestaurantController extends Controller
     public function index(Request $request)
     {
         $restaurants = Restaurant::orderBy('title')->get();
-        $menus = Menu::all();
+        $menus = Menu::orderBy('title')->get();
         //FILTRAVIMAS
         // dd($request);
         if($request->id) {
@@ -129,7 +130,6 @@ class RestaurantController extends Controller
         return redirect()->back()->withErrors($validator);
         }
 
-        $restaurant = new Restaurant;
         $restaurant->title = $request->restaurant_title;
         $restaurant->customers = $request->restaurant_customers;
         $restaurant->employees = $request->restaurant_employees;
