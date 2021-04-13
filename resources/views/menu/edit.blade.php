@@ -10,27 +10,27 @@
 
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" class="form-control" name="menu_title" value="{{old('menu_title')}}">
+                            <input type="text" class="form-control" name="menu_title" value="{{old('menu_title', $menu->title)}}">
                             <small class="form-text text-muted">Please enter menu title</small>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="text" class="form-control" name="menu_price" value="{{old('menu_price')}}">
+                            <input type="text" class="form-control" name="menu_price" value="{{old('menu_price', $menu->price)}}">
                             <small class="form-text text-muted">Please enter price</small>
                         </div>
                         <div class="form-group">
                             <label>Weight</label>
-                            <input type="text" class="form-control" name="menu_weight" value="{{old('menu_weight')}}">
+                            <input type="text" class="form-control" name="menu_weight" value="{{old('menu_weight', $menu->weight)}}">
                             <small class="form-text text-muted">Please enter weight</small>
                         </div>
                         <div class="form-group">
                             <label>Meat</label>
-                            <input type="text" class="form-control" name="menu_meat" value="{{old('menu_meat')}}">
+                            <input type="text" class="form-control" name="menu_meat" value="{{old('menu_meat', $menu->meat)}}">
                             <small class="form-text text-muted">Please enter meat</small>
                         </div>
                         <div class="form-group">
                             <label>About</label>
-                            <textarea id="summernote" name="menu_about"></textarea>
+                            <textarea id="summernote" name="menu_about" >{{old('menu_about', $menu->about)}}</textarea>
                             <small class="form-text text-muted">Parasykite ka nors :) </small>
                         </div>
                         @csrf
