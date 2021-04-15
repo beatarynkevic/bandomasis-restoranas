@@ -60,7 +60,7 @@ class RestaurantController extends Controller
     {
         $validator = Validator::make($request->all(),
         [
-        'restaurant_title' => ['required', 'alpha' , 'min:3', 'max:64'],
+        'restaurant_title' => ['required', "regex:/^[\pL\s\-]+$/u", 'min:3', 'max:64'],
         'restaurant_customers' => ['required', 'numeric', 'max:200'],
         'restaurant_employees' => ['required', 'numeric', 'min:1', 'max:64'],
         ],
@@ -117,7 +117,7 @@ class RestaurantController extends Controller
     {
         $validator = Validator::make($request->all(),
         [
-        'restaurant_title' => ['required', 'alpha' , 'min:3', 'max:64'],
+        'restaurant_title' => ['required', "regex:/^[\pL\s\-]+$/u" , 'min:3', 'max:64'],
         'restaurant_customers' => ['required', 'numeric', 'max:200'],
         'restaurant_employees' => ['required', 'numeric', 'min:1', 'max:64'],
         ],

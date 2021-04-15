@@ -47,7 +47,7 @@ class MenuController extends Controller
     {
         $validator = Validator::make($request->all(),
         [
-        'menu_title' => ['required', 'min:3', 'max:64', 'alpha'],
+        'menu_title' => ['required', 'min:3', 'max:64', 'regex:/^[\pL\s\-]+$/u'],
         'menu_price' => ['required', 'min:1', 'numeric'],
         'menu_weight' => ['required', 'min:1', 'max:400', 'numeric'],
         'menu_meat' => ['required', 'min:1', 'max:400', 'numeric', 'lte:menu_weight'],
@@ -101,7 +101,7 @@ class MenuController extends Controller
     {
         $validator = Validator::make($request->all(),
         [
-        'menu_title' => ['required', 'min:3', 'max:64', 'alpha'],
+        'menu_title' => ['required', 'min:3', 'max:64', 'regex:/^[\pL\s\-]+$/u'],
         'menu_price' => ['required', 'min:1', 'numeric'],
         'menu_weight' => ['required', 'min:1', 'max:400', 'numeric'],
         'menu_meat' => ['required', 'min:1', 'max:400', 'numeric', 'lte:menu_weight'],
