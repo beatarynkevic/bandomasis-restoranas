@@ -27,6 +27,7 @@
                                 <td>{{$menu->meat}}</td>
                                 <td>
                                     <div class="list-line__buttons">
+                                        <a href="{{route('menu.show',[$menu])}}" class="btn btn-success">SHOW</a>
                                         <a href="{{route('menu.pdf', [$menu])}}" class="btn btn-warning">PDF</a>
                                         <a href="{{route('menu.edit',[$menu])}}" class="btn btn-info">EDIT</a>
                                         <form method="POST" action="{{route('menu.destroy', [$menu])}}">

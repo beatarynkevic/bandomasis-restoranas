@@ -51,7 +51,7 @@ class MenuController extends Controller
         'menu_price' => ['required', 'min:1', 'numeric'],
         'menu_weight' => ['required', 'min:1', 'max:400', 'numeric'],
         'menu_meat' => ['required', 'min:1', 'max:400', 'numeric', 'lte:menu_weight'],
-        'menu_about' => ['required', 'min:3', 'max:200']
+        'menu_about' => ['required', 'min:3', 'max:2000']
         ]
         );
         if ($validator->fails()) {
@@ -76,7 +76,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
+        return view('menu.show', ['menu' => $menu]);
     }
 
     /**
@@ -105,7 +105,7 @@ class MenuController extends Controller
         'menu_price' => ['required', 'min:1', 'numeric'],
         'menu_weight' => ['required', 'min:1', 'max:400', 'numeric'],
         'menu_meat' => ['required', 'min:1', 'max:400', 'numeric', 'lte:menu_weight'],
-        'menu_about' => ['required', 'min:3', 'max:200']
+        'menu_about' => ['required', 'min:3', 'max:2000']
         ]
         );
         if ($validator->fails()) {
